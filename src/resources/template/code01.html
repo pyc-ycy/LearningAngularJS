@@ -9,16 +9,37 @@
 <center>
     <h1>AngularJS </h1>
 <!--    ng-init and data-ng-init can not using in the same time-->
-    <div ng-app="" data-ng-init="lastName='承扬'">
-        <p>名字：<input type="text" ng-model="name"></p>
-        <h1>Hello {{name}}</h1>
+<!--    <div ng-app="" data-ng-init="lastName='承扬'">-->
+<!--        <p>名字：<input type="text" ng-model="name"></p>-->
+<!--        <h1>Hello {{name}}</h1>-->
+<!--        <br>-->
+<!--        <p>姓名为：<span ng-bind="firstName"></span>-->
+<!--        &nbsp;<span data-ng-bind="lastName"></span></p>-->
+<!--&lt;!&ndash;        AngularJS expression&ndash;&gt;-->
+<!--        <p> 5 + 5 = {{5+5}}</p>-->
+<!--    </div>-->
+<!--    AngularJS application-->
+<!--   AngularJS using module to  create application,
+    and using controller to control the application.
+    the ng-app instruction is used to declare application
+    and ng-controller instruction is used to declare controller
+-->
+<!--    example: -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+<!--        in a html file can only have one ng-app-->
+        名：<label><input type="text" ng-model="firstName"></label><br>
         <br>
-        <p>姓名为：<span ng-bind="firstName"></span>
-        &nbsp;<span data-ng-bind="lastName"></span></p>
-<!--        AngularJS expression-->
-        <p> 5 + 5 = {{5+5}}</p>
+        姓：<label><input type="text" ng-model="lastName"></label><br>
+        <br>
+        姓名：{{lastName + "" + firstName}}
     </div>
-    
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl', function ($scope) {
+            $scope.firstName="承扬";
+            $scope.lastName="御";
+        });
+    </script>
 </center>
 </body>
 </html>
