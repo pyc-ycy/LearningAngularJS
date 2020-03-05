@@ -25,13 +25,15 @@
     and ng-controller instruction is used to declare controller
 -->
 <!--    example: -->
-    <div ng-app="myApp" ng-controller="myCtrl">
+    <div ng-app="myApp" ng-controller="myCtrl" ng-init="quantity=1;cost=5;person={firstName:'Jupyter',lastName:'Notebook'}">
 <!--        in a html file can only have one ng-app-->
         名：<label><input type="text" ng-model="firstName"></label><br>
         <br>
         姓：<label><input type="text" ng-model="lastName"></label><br>
         <br>
         姓名：{{lastName + "" + firstName}}
+        <p>总价：<span ng-bind="quantity * cost"></span> </p>
+        <p>First name is:<span ng-bind="person.firstName"></span> ,and last name is: {{person.lastName}}</p>
     </div>
     <script>
         var app = angular.module('myApp',[]);
@@ -39,6 +41,17 @@
             $scope.firstName="承扬";
             $scope.lastName="御";
         });
+    </script>
+    <div id="second" ng-app="second" ng-init="points=[1,15,19,2,40]">
+        <p ng-model="two"></p>
+        <p>The value of third num is:<span ng-bind="points[2]"></span> </p>
+    </div>
+    <script>
+        var app = angular.module('second',[]);
+        app.controller('secondCtrl', function ($scope) {
+            $scope.two = "The second div!"
+        });
+        angular.bootstrap(document.getElementById("second"),['second']);
     </script>
 </center>
 </body>
