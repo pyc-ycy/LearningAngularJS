@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>AngularJS Learning</title>
     <script src="../static/js/angular.min.js"></script>
+    <style>
+        body{
+            background: #d7c7e9;
+        }
+    </style>
 </head>
 <body>
 <center>
@@ -42,6 +47,7 @@
             $scope.lastName="御";
         });
     </script>
+    <hr style="border: solid;color: aqua;width: 50%">
     <div id="second" ng-app="second" ng-init="points=[1,15,19,2,40]">
         <p ng-model="two"></p>
         <p>The value of third num is:<span ng-bind="points[2]"></span> </p>
@@ -53,6 +59,45 @@
         });
         angular.bootstrap(document.getElementById("second"),['second']);
     </script>
+    <hr style="border: solid;color: aqua; width: 50%">
+    <div ng-app="t3" id="t3" ng-init="sl=1;jg=5">
+        <h2>价格计算器</h2>
+        数量：<label><input type="number" ng-model="sl"></label>
+        价格：<label><input type="number" ng-model="jg"></label>
+        <p><b>总价：</b>{{sl * jg}}</p>
+    </div>
+    <script>
+        var app = angular.module('t3', []);
+        angular.bootstrap(document.getElementById("t3"),['t3']);
+    </script>
+    <hr style="border: solid;color: aqua; width: 50%">
 </center>
+    <div data-ng-app="t4" id="t4" data-ng-init="names=['Jani','Hege','Kai']">
+        <p>使用 ng-repeat 来循环数组</p>
+        <ul>
+            <li data-ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module('t4', []);
+        angular.bootstrap(document.getElementById("t4"), ['t4']);
+    </script>
+<div ng-app="t5" id="t5" ng-init="list=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'kai',country:'Denmark'}]">
+    <p>循环对象列表</p>
+    <ul>
+        <li ng-repeat="x in list">
+            {{x.name +',' + x.country}}
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module('t5', []);
+    angular.bootstrap(document.getElementById("t5"), ['t5']);
+</script>
 </body>
 </html>
